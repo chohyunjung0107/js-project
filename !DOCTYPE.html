@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>테스트 테스트 테스트</title>
+    </head>
+
+    <style>
+        body,
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrap {
+            width: 1500px;
+            background: #ccc;
+        }
+
+        #result {
+            width: 1500px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        #result2 {
+            height: 100px;
+            background: rgba(255, 200, 255, 0.3);
+            margin: 1% 0;
+        }
+
+        #result3 {
+            height: 100px;
+            background: rgba(255, 100, 255, 0.3);
+        }
+    </style>
+
+    <body>
+        <div id="wrap" class="wrap">
+            <input type="text" id="a" value="" onchange="handleOnChange()" />
+            <button onclick="handleClick()">테스트</button>
+
+            <div id="result">result<br /></div>
+            <div id="result2">result2<br /></div>
+            <div id="result3">result3<br /></div>
+        </div>
+    </body>
+
+    <script>
+        const result2 = document.getElementById("result2");
+        const result3 = document.getElementById("result3");
+        const arr2 = ["a2", "b2", "c2", "d2", "e2"];
+        const arr = ["a", "b", "c", "d", "e"];
+
+        function handleOnChange(event) {
+            document.getElementById("a").value = event.tartget.value;
+        }
+
+        // ------ 입력한 값 출력하기
+        function handleClick() {
+            //리졸트 영역에 인풋 값 넣기
+            document.getElementById("result").innerText =
+                document.getElementById("a").value;
+
+            //인풋값 리셋
+            document.getElementById("a").value = "";
+        }
+
+        // ------ for문으로 돌릴 때 값 할당
+        for (let i = 1; i <= 5; i++) {
+            result2.innerText = "for문 : " + arr2;
+        }
+
+        // ------ map으로 돌릴때 값 할당
+        result3.innerText =
+            "map :" +
+            arr.map((item) => {
+                return item;
+            });
+    </script>
+</html>
